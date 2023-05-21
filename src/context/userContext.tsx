@@ -44,16 +44,6 @@ export const UserProvider: React.FC = ({ children }: any) => {
     }
     setProductList(product1);
   };
-  // const { data } = await productService.getProductList();
-  // var product1 = [];
-  // for (let i = 0; i < data.length; i++) {
-  //   product1.push({
-  //     name: data[i].prod_name,
-  //     price: data[i].prod_price,
-  //     type: data[i].prod_categories_id,
-  //     imageUrl: data[i].prod_image_url || '',
-  //   });
-  // }
 
   return (
     <UserContext.Provider

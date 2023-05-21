@@ -14,7 +14,6 @@ const UserMenu = () => {
   const getCart = async () => {
     try {
       const { data } = await orderService.getOrderList();
-
       var dataList = [];
       for (let i = 0; i < data.length; i++) {
         dataList.push({
@@ -27,7 +26,8 @@ const UserMenu = () => {
   };
 
   useEffect(() => {
-    getCart();
+    if (localStorage.getItem('user')) getCart();
+    else setCartList([]);
   }, []);
   return (
     <div className="relative">
@@ -66,7 +66,11 @@ const UserMenu = () => {
           <div className="flex flex-col cursor-pointer ">
             <>
               <MenuItem
-                onClick={() => window.location.replace('/menu')}
+                onClick={() => {
+                  if (localStorage.getItem('user'))
+                    window.location.replace('/profile');
+                  else window.location.replace('/login');
+                }}
                 label="profile"
               />
               <MenuItem

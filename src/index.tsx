@@ -12,18 +12,6 @@ root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
-  // <BrowserRouter>
-  //   <Routes>
-  //     <Route path="/" element={<App />}>
-
-  //       {/* <Route index element={<Home />} />
-
-  //       <Route path="blogs" element={<Blogs />} />
-  //       <Route path="contact" element={<Contact />} />
-  //       <Route path="*" element={<NoPage />} /> */}
-  //     </Route>
-  //   </Routes>
-  // </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

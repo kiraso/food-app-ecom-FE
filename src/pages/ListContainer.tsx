@@ -7,7 +7,6 @@ import { UserContext } from '../context/userContext';
 const ListContainer = () => {
   const { user } = useContext(UserContext);
   const [foodDetail, setFoodDetail] = useState<any>([]);
-  console.log('user', user);
   const getProduct = async () => {
     try {
       const { data } = await productService.getProductList();

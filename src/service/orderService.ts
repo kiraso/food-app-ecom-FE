@@ -4,6 +4,7 @@ export interface OrderListProps {
     order_price: number;
     order_qty: number;
     order_type:number;
+    user_id:number;
 
   }
 

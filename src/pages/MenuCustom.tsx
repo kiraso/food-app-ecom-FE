@@ -5,13 +5,14 @@ import { AppContext, AppContextState } from '../context/AppContext';
 import { useLocation } from 'react-router-dom';
 import * as orderService from '.././service/orderService';
 import { useContext, useEffect, useState } from 'react';
+import { UserContext } from '../context/userContext';
 
 const MenuCustom = () => {
-  const { user } = useContext<AppContextState>(AppContext);
   const [menu, setMenu] = useState<any>([]);
   const [qytItem, setQytItem] = useState<number>(0);
+  const [user, setUser] = useState<any | null>([]);
 
-  const [optionalMessage, setOptionalMessage] = useState<string>('');
+  // const [optionalMessage, setOptionalMessage] = useState<string>('');
   const location = useLocation();
 
   const getCart = async () => {
@@ -48,6 +49,8 @@ const MenuCustom = () => {
     } catch (error) {}
   };
   useEffect(() => {
+    if (localStorage.getItem('user'))
+      setUser(JSON.parse(localStorage.getItem('user')!));
     getProduct();
   }, [location.pathname]);
 
@@ -69,7 +72,7 @@ const MenuCustom = () => {
             <div className="p-8 ml-[20px] w-full border-2 border-1 rounded-xl border-green-500">
               <div className="">
                 <h1 className="text-[48px] font-extrabold text-green-500">
-                  {menu[0]?.name || 'Pad-Thai'} {user}
+                  {menu[0]?.name || 'Pad-Thai'}
                 </h1>
               </div>
               <div>
@@ -151,6 +154,7 @@ const MenuCustom = () => {
                         order_price: menu[0].price,
                         order_qty: qytItem,
                         order_type: menu[0].type,
+                        user_id: user['_id'],
                       });
                       window.location.reload();
                     } catch (err) {

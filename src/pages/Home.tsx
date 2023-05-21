@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Landing from './Landing';
 import ListContainer from './ListContainer';
 import Categories from '../components/categories/Categories';

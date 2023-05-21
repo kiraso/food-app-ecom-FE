@@ -20,6 +20,7 @@ const Login = () => {
     };
     try {
       const userlogin = await authen.login(userForm);
+      localStorage.setItem('user', JSON.stringify(userlogin.data));
       loginUser(userlogin.data);
       navigate('/');
       console.log(userlogin);
